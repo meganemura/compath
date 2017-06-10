@@ -1,38 +1,50 @@
 # Compath
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/compath`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Compath generates a guide of directory structure in the project.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'compath'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install compath
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ compath --file=.compath.yml
 
-## Development
+It creates or updates `.compath.yml`.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```yaml
+- ".gitignore":
+    desc:
+- bin/:
+    desc:
+- bin/console:
+    desc:
+- bin/setup:
+    desc:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+...
+```
+
+Each object of sequences has a key to object structure.
+The key means path, and the object is only able to have `desc` or `scan/` keys.
+`desc` is to describe what the path means.
+`scan` is to switch scanning files or not for the directory by configuring boolean value (`true`, `false`).
+
+With the following config, `compath` does not scan files of `bin/` directory.
+
+```yaml
+- ".gitignore":
+    desc:
+- bin/:
+    desc:
+    scan: false
+
+...
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/compath.
+Bug reports and pull requests are welcome on GitHub at https://github.com/meganemura/compath.
 
 ## License
 

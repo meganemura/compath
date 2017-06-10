@@ -1,5 +1,10 @@
-require "compath/version"
+require "forwardable"
+require "yaml"
 
-module Compath
-  # Your code goes here...
-end
+require "compath/guide"
+require "compath/guide_book"
+require "compath/finder"
+require "compath/dumper"
+require "compath/path_sorter"
+require "compath/config_loader"
+require "compath/version"
