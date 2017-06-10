@@ -1,5 +1,6 @@
 require "forwardable"
 require "yaml"
+require "pathname"
 
 require "compath/guide"
 require "compath/guide_book"
