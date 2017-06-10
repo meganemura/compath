@@ -13,7 +13,6 @@ module Compath
 
     def merge(new_guides)
       new_guides.each do |guide|
-        puts guide.to_path
         if @index.key?(guide.to_path)
           @index[guide.to_path] = guide
         end
