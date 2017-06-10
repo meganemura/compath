@@ -13,7 +13,8 @@ module Compath
 
       yaml = guide_book.publish_yaml
 
-      puts yaml
+      File.write('.compath.yml', yaml)
+      puts 'Write .compath.yml'
     end
   end
 end
