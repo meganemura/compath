@@ -1,1 +1,10 @@
+require "forwardable"
+require "yaml"
+
+require "compath/guide"
+require "compath/guide_book"
+require "compath/finder"
+require "compath/dumper"
+require "compath/path_sorter"
+require "compath/config_loader"
 require "compath/version"
