@@ -19,8 +19,9 @@ module Compath
       end
 
       yaml = guide_book.publish_yaml
+      formatted_yaml = YamlFormatter.new(yaml).format
 
-      File.write('.compath.yml', yaml)
+      File.write('.compath.yml', formatted_yaml)
       puts 'Write .compath.yml'
     end
   end
