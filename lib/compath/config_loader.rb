@@ -5,9 +5,17 @@ module Compath
       conf = YAML.load(config)
 
       guides = conf.map do |path, guide|
-        # symbolize keys
-        options = guide.each_with_object({}) do |(key, value), hash|
-          hash[key.to_sym] = value
+        if guide.is_a?(Hash)
+          # symbolize keys
+          options = guide.each_with_object({}) do |(key, value), hash|
+            hash[key.to_sym] = value
+          end
+        else
+          # nil or String
+          options = {
+            scan: true,
+            desc: guide,
+          }
         end
 
         # TODO: Bad interface...

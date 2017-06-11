@@ -42,17 +42,14 @@ module Compath
     end
 
     def object_value
-      scan_or_not = if !directory? || @scan_children
-                      {}
-                    else
-                      {
-                        'scan' => false
-                      }
-                    end
-
-      {
-        'desc' => @description
-      }.merge(scan_or_not)
+      if !directory? || @scan_children
+        @description
+      else
+        {
+          'desc' => @description,
+          'scan' => @scan_children,
+        }
+      end
     end
   end
 end
