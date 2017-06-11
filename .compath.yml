@@ -2,7 +2,5 @@
 bin/: 
 exe/: 
 lib/: 
-lib/compath/:
-  desc: 
-  scan: false
+lib/compath/**/*: 
 spec/: 
