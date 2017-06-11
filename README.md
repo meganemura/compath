@@ -13,34 +13,44 @@ Compath generates a guide of directory structure in the project.
 It creates or updates `.compath.yml`.
 
 ```yaml
-- ".gitignore":
-    desc:
-- bin/:
-    desc:
-- bin/console:
-    desc:
-- bin/setup:
-    desc:
+---
+bin/:
+exe/:
+lib/:
+lib/compath/:
+spec/:
 
 ...
 ```
 
-Each object of sequences has a key to object structure.
-The key means path, and the object is only able to have `desc` or `scan/` keys.
-`desc` is to describe what the path means.
-`scan` is to switch scanning files or not for the directory by configuring boolean value (`true`, `false`).
+The top level object of yaml is mapping. Each key of objects means path, and each value of objects means description.
+Additional convention of configuration is that the path (key) which is end with `**/*` or `*` tells Compath to stop scanning of children of the directory.
 
 With the following config, `compath` does not scan files of `bin/` directory.
 
 ```yaml
-- ".gitignore":
-    desc:
-- bin/:
-    desc:
-    scan: false
+---
+bin/:
+exe/:
+lib/**/*:   # Modified!
+lib/compath/:
+spec/:
 
 ...
 ```
+
+will be updated to the following content by compath.
+
+```yaml
+---
+bin/:
+exe/:
+lib/**/*:
+spec/:
+
+...
+```
+
 
 ## Contributing
 

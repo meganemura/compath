@@ -35,21 +35,18 @@ module Compath
 
     def object_key
       if directory?
-        pathname.to_s + '/'
+        if @scan_children
+          pathname.to_s + '/'
+        else
+          pathname.to_s + '/**/*'
+        end
       else
         pathname.to_s
       end
     end
 
     def object_value
-      if !directory? || @scan_children
-        @description
-      else
-        {
-          'desc' => @description,
-          'scan' => @scan_children,
-        }
-      end
+      @description
     end
   end
 end
