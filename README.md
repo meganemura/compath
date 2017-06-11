@@ -38,7 +38,7 @@ spec/:
 ...
 ```
 
-It will be updated to the following content by compath.
+It will be updated to the following content by running `compath`.
 
 ```yaml
 ---
