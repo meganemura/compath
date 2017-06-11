@@ -35,7 +35,7 @@ module Compath
 
     def object_key
       if directory?
-        if @scan_children
+        if !has_directory_child? || @scan_children
           pathname.to_s + '/'
         else
           pathname.to_s + '/**/*'
@@ -47,6 +47,10 @@ module Compath
 
     def object_value
       @description
+    end
+
+    def has_directory_child?
+      pathname.children.any?(&:directory?)
     end
   end
 end
