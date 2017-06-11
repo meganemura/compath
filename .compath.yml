@@ -1,42 +1,8 @@
 ---
-- ".compath.yml":
-    desc: 
-- ".gitignore":
-    desc: 
-- ".rspec":
-    desc: Configuration file for RSpec
-- ".travis.yml":
-    desc: Configuration file for travis
-- bin/:
-    desc: 
-- bin/console:
-    desc: 
-- bin/setup:
-    desc: 
-- compath.gemspec:
-    desc: 
-- exe/:
-    desc: 
-- exe/compath:
-    desc: 
-- Gemfile:
-    desc: 
-- lib/:
-    desc: 
-- lib/compath/:
-    desc: 
-    scan: false
-- lib/compath.rb:
-    desc: 
-- LICENSE.txt:
-    desc: 
-- Rakefile:
-    desc: 
-- README.md:
-    desc: 
-- spec/:
-    desc: 
-- spec/compath_spec.rb:
-    desc: 
-- spec/spec_helper.rb:
-    desc: 
+bin/: 
+exe/: 
+lib/: 
+lib/compath/:
+  desc: 
+  scan: false
+spec/: 

@@ -28,28 +28,27 @@ module Compath
     end
 
     def to_object
-      scan_or_not = if !directory? || @scan_children
-                      {}
-                    else
-                      {
-                        'scan' => false
-                      }
-                    end
-
-      object = {
-                 object_key => {
-                   'desc' => @description
-                 }.merge(scan_or_not)
-               }
-
-      object
+      { object_key => object_value }
     end
+
+    private
 
     def object_key
       if directory?
         pathname.to_s + '/'
       else
         pathname.to_s
+      end
+    end
+
+    def object_value
+      if !directory? || @scan_children
+        @description
+      else
+        {
+          'desc' => @description,
+          'scan' => @scan_children,
+        }
       end
     end
   end

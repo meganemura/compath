@@ -5,6 +5,7 @@ module Compath
       paths = Compath::PathSorter.sort(finder.paths.keys)
 
       guides = paths.map {|path| Compath::Guide.new(path) }
+      guides.select!(&:directory?)
       guide_book = Compath::GuideBook.new(guides)
       if FileTest.exist?('.compath.yml')
         config = Compath::ConfigLoader.load(File.read('.compath.yml'))

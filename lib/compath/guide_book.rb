@@ -20,14 +20,15 @@ module Compath
     end
 
     def publish
-      guides.map do |guide|
+      @index.each_with_object({}) do |(path, guide), hash|
         scan_children = true
         scan_children = guide.ancestors.all? do |ancestor|
           @index[ancestor.to_path].scan_children
         end
         next unless scan_children
-        guide.to_object
-      end.compact
+
+        hash.update(guide.to_object)
+      end
     end
 
     def publish_yaml
