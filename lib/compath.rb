@@ -2,6 +2,7 @@ require "forwardable"
 require "yaml"
 require "pathname"
 
+require "compath/yaml_formatter"
 require "compath/guide"
 require "compath/guide_book"
 require "compath/finder"

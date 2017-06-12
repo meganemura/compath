@@ -1,6 +1,7 @@
 ---
-bin/: 
-exe/: 
-lib/: 
-lib/compath/**/*: 
-spec/: 
+.github/:
+bin/:
+exe/:
+lib/:
+lib/compath/:
+spec/:
