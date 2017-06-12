@@ -31,7 +31,7 @@ module Compath
       lambda do |yaml|
         lines = yaml.lines.map do |line|
           if m = QUOTED_KEY_REGEXP.match(line)
-            "#{m[:key]}: #{m[:value]}"
+            "#{m[:key]}: #{m[:value]}".rstrip
           else
             line.chomp
           end
